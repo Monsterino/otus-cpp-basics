@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/work/otus-cpp-basics/example.cpp
+example.h
+/home/work/otus-cpp-basics/example.h
+iostream
+-
+
+/home/work/otus-cpp-basics/example.h
+
+/home/work/otus-cpp-basics/hello_world.cpp
+example.h
+/home/work/otus-cpp-basics/example.h
+iostream
+-
+

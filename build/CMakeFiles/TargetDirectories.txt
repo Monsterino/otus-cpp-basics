@@ -1,0 +1,3 @@
+/home/work/otus-cpp-basics/build/CMakeFiles/rebuild_cache.dir
+/home/work/otus-cpp-basics/build/CMakeFiles/edit_cache.dir
+/home/work/otus-cpp-basics/build/CMakeFiles/homework_1.dir
