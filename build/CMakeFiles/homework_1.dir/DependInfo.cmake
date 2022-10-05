@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/work/otus-cpp-basics/example.cpp" "/home/work/otus-cpp-basics/build/CMakeFiles/homework_1.dir/example.cpp.o"
   "/home/work/otus-cpp-basics/hello_world.cpp" "/home/work/otus-cpp-basics/build/CMakeFiles/homework_1.dir/hello_world.cpp.o"
+  "/home/work/otus-cpp-basics/move_me_out.cpp" "/home/work/otus-cpp-basics/build/CMakeFiles/homework_1.dir/move_me_out.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

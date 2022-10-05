@@ -6,4 +6,7 @@ CMakeFiles/homework_1.dir/example.cpp.o: ../example.h
 
 CMakeFiles/homework_1.dir/hello_world.cpp.o: ../example.h
 CMakeFiles/homework_1.dir/hello_world.cpp.o: ../hello_world.cpp
+CMakeFiles/homework_1.dir/hello_world.cpp.o: ../move_me_out.h
+
+CMakeFiles/homework_1.dir/move_me_out.cpp.o: ../move_me_out.cpp
 
