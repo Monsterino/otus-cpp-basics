@@ -6,6 +6,8 @@ add_executable(homework_1
     hello_world.cpp
     example.cpp
     example.h
+    move_me_out.h
+    move_me_out.cpp
 )
 
 set_target_properties(homework_1 PROPERTIES
