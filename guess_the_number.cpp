@@ -1,5 +1,5 @@
 #include "utils.h"
-
+#include <string>
 #include <iostream>
 
 
@@ -9,7 +9,7 @@ int main(int argc, char** argv) {
     int number;                               // Введенное игроком число    
     int counter = 1;                          // Счетчик попыток
     int random_number;                        // Случайно выбранное компьютером число
-
+     
     //если аргументов больше одного, но меньше трех
     if (argc > 1 && argc <= 3){    
 
@@ -81,7 +81,6 @@ int main(int argc, char** argv) {
     // Проверка на случай, если параметров нет. Тогда программа будет работать со значениями по умолчанию
     else if (argc == 1){
         random_number = pick_the_number("None",0);
-        std::cout <<  "argc = 1" << std::endl;
     }
     else if (argc > 1){ 
         std::cout << "So many arguments";
@@ -114,6 +113,7 @@ int main(int argc, char** argv) {
         else{
             std::cout << "you win! attempts = " << counter << std::endl;
             write_result(filename,name,counter);
+            search_best_score(filename);  
             std::cout << std::endl << "High scores table:" << std::endl;
             read_file("high_scores.txt");
             break;
