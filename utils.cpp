@@ -70,7 +70,7 @@ bool isNumber(const std::string& str)
     return std::all_of(str.begin(), str.end(), [](const char& ch) { return isdigit(ch); });
 }
 
-void search_best_score(std::string filename){
+void search_best_score(std::string filename, bool rewrite){
     std::ifstream o_file{filename}; //Открытый файл
     std::string player; // Имя игрока
     std::string result;
@@ -129,6 +129,7 @@ void search_best_score(std::string filename){
     //На выходе этого блока мы имеем два вектора, содержащие имена игроков с их лучшим значением
 
     //Заново открываем файл и перезаписываем данные
+    if (rewrite){
     std::ofstream open_file{filename};
     for (int i = 0; i < names_size; i++) {
       if (i==names_size-1){
@@ -139,5 +140,11 @@ void search_best_score(std::string filename){
       }
     }
     open_file.close();
+    }
+    else {
+      for (int i = 0; i < names_size; i++) {
+        std::cout << "Player: " << names[i] << " Attempts: " << results[i] << std::endl;
+      }
+    }
 
 }
