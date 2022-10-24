@@ -16,7 +16,8 @@ int main(int argc, char** argv) {
         std::string parameter{ argv[1]};  // считываем первый параметр
         if (parameter == "-table"){
             std::cout <<  " You start the program with flag:-table" << std::endl;
-            read_file("high_scores.txt"); // Выводим таблицу
+            //read_file("high_scores.txt"); // Выводим таблицу
+            search_best_score(filename,false); 
             return 0;
         }
         // Если флаг max
@@ -113,7 +114,7 @@ int main(int argc, char** argv) {
         else{
             std::cout << "you win! attempts = " << counter << std::endl;
             write_result(filename,name,counter);
-            search_best_score(filename);  
+            search_best_score(filename,true);  
             std::cout << std::endl << "High scores table:" << std::endl;
             read_file("high_scores.txt");
             break;
