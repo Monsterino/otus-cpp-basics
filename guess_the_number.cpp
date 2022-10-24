@@ -115,8 +115,7 @@ int main(int argc, char** argv) {
             std::cout << "you win! attempts = " << counter << std::endl;
             write_result(filename,name,counter);
             search_best_score(filename,true);  
-            std::cout << std::endl << "High scores table:" << std::endl;
-            read_file("high_scores.txt");
+            //read_file("high_scores.txt");
             break;
         }
     }

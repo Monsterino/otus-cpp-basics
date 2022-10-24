@@ -129,6 +129,8 @@ void search_best_score(std::string filename, bool rewrite){
     //На выходе этого блока мы имеем два вектора, содержащие имена игроков с их лучшим значением
 
     //Заново открываем файл и перезаписываем данные
+
+    std::cout << std::endl << "High scores table:" << std::endl;
     if (rewrite){
     std::ofstream open_file{filename};
     for (int i = 0; i < names_size; i++) {
@@ -141,10 +143,11 @@ void search_best_score(std::string filename, bool rewrite){
     }
     open_file.close();
     }
-    else {
-      for (int i = 0; i < names_size; i++) {
-        std::cout << "Player: " << names[i] << " Attempts: " << results[i] << std::endl;
-      }
+    
+
+    for (int i = 0; i < names_size; i++) {
+      std::cout << "Player: " << names[i] << " Attempts: " << results[i] << std::endl;
     }
+    
 
 }
