@@ -61,7 +61,7 @@ public:
 
 		}
 				
-		void push_back(T element) {										
+		void push_back(const T& element) {										
 
 			if ((size_container == int(std::pow(2, reserved_size))) || (size_container == 0)) {
 
@@ -82,7 +82,7 @@ public:
 		}
 		
 										
-		void insert(int id, T element) {									
+		void insert(int id, const T& element) {									
 			if (id > size_container || id < 0) {
 				std::cout << "Array index is out of bound";
 				exit(0);
@@ -136,7 +136,7 @@ public:
 				std::cout << "Array index is out of bound";
 				exit(0);
 			}
-			return *(container + (index - 1));
+			return *(container + (index));
 		}
 
 

@@ -17,8 +17,7 @@ class N_Container {
 		N_Container() : size_container{ 0 }, first_node{ nullptr }, last_node{ nullptr } {};
 
 		~N_Container() {
-			Node* current;
-			for (size_t i = 0; i < size_container-1; i++)
+			for (int i = 0; i < size_container-1; i++)
 			{
 				first_node = first_node->next;
 				delete first_node->prev;
@@ -26,7 +25,7 @@ class N_Container {
 			delete first_node;
 		}
 
-		void push_back(T element) {									
+		void push_back(const T& element) {									
 			Node* new_element = new Node{};
 			if (size_container == 0)
 			{
@@ -50,7 +49,7 @@ class N_Container {
 
 		}
 
-		void insert(int id, T value) {								
+		void insert(int id, const T& value) {								
 			if ((id > size_container) || (id < 0)) {
 				std::cout << "Array index is out of bound";
 				exit(0);
