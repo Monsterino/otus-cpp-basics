@@ -24,6 +24,8 @@ void Net::initialize(){
 
     for (size_t i = 1; i < network_topology.size(); i++)
     {
+        network_topology[i]->prev_layer = network_topology[i-1];
+        network_topology[i-1]->next_layer = network_topology[i];
         network_topology[i]->initialize();
     }
 }
