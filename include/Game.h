@@ -7,17 +7,19 @@ class TikTakToe_engine {
 	public:
 		TikTakToe_engine();
 
-		char get_player();    // Узнать, какой игрок сейчас ходит
-		short get_winner();   // Узнать, есть ли победитель	
-		short* get_state();   // Получить текущее состояние игрового поля
-		short get_count_moves();  // Получить количество пустых ячеек
+		char get_player(); 
+		short get_winner();
+		short* get_state();  
+		short get_count_moves(); 
 		char int_to_str(const short& player);
-		void allowed_moves(); // Показать возможные ходы
+		void allowed_moves(); 
 
-		bool allowed_moves(const short& move);  // Проверить, возможно ли сделать данный ход
-		short predict_winner(); // Предсказать победителя
+		bool allowed_moves(const short& move); 
 
-		void change_player(); // Сменить игрока
+		std::vector<std::pair<int,short*>> get_all_states();
+		short predict_winner(); 
+
+		void change_player(); 
 
 		void make_move(const short& move);
 

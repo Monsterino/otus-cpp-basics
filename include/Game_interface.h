@@ -8,7 +8,9 @@
 
 class Interface {
 	public:
-		Interface();
+		Interface(std::string mode);
 		void play_game();
+	private:
+		std::string _mode;
 
 };

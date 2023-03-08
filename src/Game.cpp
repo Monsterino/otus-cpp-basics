@@ -1,5 +1,6 @@
 #include "Game.h"
 #include <algorithm>
+#include <cstring>
 
 
 TikTakToe_engine::TikTakToe_engine() 
@@ -34,6 +35,24 @@ void TikTakToe_engine::change_player() {
 	}
 }
 
+std::vector<std::pair<int,short*>>  TikTakToe_engine::get_all_states(){
+	std::vector<std::pair<int,short*>> cur_vector;
+	for (int i = 0; i < 9; ++i) {
+		short *ptr = get_state();
+		if (*(ptr + i) == 0) {
+			short cur_value[9];
+			std::copy(std::begin(state), std::end(state), std::begin(cur_value));
+			if (player == 'X') {cur_value[i] = 1;}
+			else {cur_value[i] = -1;}
+			std::pair<int,short*> pair;
+			pair = std::make_pair(i+1,cur_value); 
+			cur_vector.push_back(pair);
+		}
+			
+	
+	}
+	return cur_vector;
+}
 
 void TikTakToe_engine::allowed_moves() {
 	for (size_t i = 0; i < 9; ++i) {

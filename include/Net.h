@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include <iostream>
+#include "Dense.h"
 #include "Layer.h"
 
 
@@ -11,11 +12,14 @@ class Net {
 		int* get_size();
 		void add_layer(Layer* layer);
 		std::vector<Layer*> topology();
-		void initialize();
+		
+		double* predict(double* input_data);
+
 
 	private:
-		int size[4];
+		int input_size[4];
 		std::vector<Layer*> network_topology;
+
 		
 
 
