@@ -1,6 +1,6 @@
 #include "Game.h"
-#include <algorithm>
 
+#include <cstring>
 
 TikTakToe_engine::TikTakToe_engine() 
 	:winner{ -2 }
@@ -16,7 +16,7 @@ short TikTakToe_engine::get_winner() {
 	return winner;
 }
 
-short* TikTakToe_engine::get_state() {
+int* TikTakToe_engine::get_state() {
 	return state;
 }
 
@@ -34,10 +34,35 @@ void TikTakToe_engine::change_player() {
 	}
 }
 
+std::map<int, int*>*  TikTakToe_engine::get_all_states(){
+	//std::vector<std::pair<int,short*>> cur_vector;
+	int value_player;
+
+	if (player == 'X') { value_player = 1; }
+	else { value_player = -1; }
+
+	std::map<int, int*>* states = new std::map<int, int*>;
+	for (int i = 0; i < 9; ++i) {
+	//	if (*(ptr + i) == 0) {
+		if (state[i] == 0) {
+
+			int* current_state = new int[9];
+			memcpy(current_state,state,sizeof(state));
+
+			*(current_state + i) = value_player;
+
+			states->insert(std::pair<int, int*>(i, current_state));
+
+		}
+			
+	
+	}
+	return states;
+}
 
 void TikTakToe_engine::allowed_moves() {
 	for (size_t i = 0; i < 9; ++i) {
-		short *ptr = get_state();
+		int *ptr = get_state();
 		if (*(ptr + i) == 0) {
 			std::cout << i + 1 << " ";
 		}
@@ -47,8 +72,9 @@ void TikTakToe_engine::allowed_moves() {
 }
 
 bool TikTakToe_engine::allowed_moves(const short& move) {
+	if (this->winner != -2 ) { return false; }
 	for (size_t i = 0; i < 9; ++i) {
-		short *ptr = get_state();
+		int *ptr = get_state();
 		if ((*(ptr + i) == 0) && (move == i+1)) {
 			return true;
 		}
@@ -57,18 +83,28 @@ bool TikTakToe_engine::allowed_moves(const short& move) {
 
 }
 
-short TikTakToe_engine::predict_winner() {
+std::vector<short> TikTakToe_engine::return_winner_positions() {
 	std::vector<short> sum;
 
 	for (size_t i = 0; i < 3; ++i) {
-	
-		sum.push_back(this->state[0+3*i] + this->state[1+3*i] + this->state[2+3*i]);
-		sum.push_back(this->state[0 + i] + this->state[3+i]+ this->state[6+i]);
+
+		sum.push_back(this->state[0 + 3 * i] + this->state[1 + 3 * i] + this->state[2 + 3 * i]);
+		sum.push_back(this->state[0 + i] + this->state[3 + i] + this->state[6 + i]);
 	}
 
 	sum.push_back(this->state[0] + this->state[4] + this->state[8]);
 	sum.push_back(this->state[2] + this->state[4] + this->state[6]);
 
+	return sum;
+}
+
+
+
+
+short TikTakToe_engine::predict_winner() {
+	std::vector<short> sum;
+
+	sum = return_winner_positions();
 	for (size_t i = 0; sum.size()>i;++i)
 	{
 		if ((sum[i] == 3) || (sum[i]==-3)){
@@ -127,7 +163,7 @@ std::ostream& operator<<(std::ostream& os, TikTakToe_engine& game) {
 		if (i % 3 == 0) {
 			os << std::endl;
 		}
-		short *ptr = game.get_state();
+		int *ptr = game.get_state();
 		os << game.int_to_str(*(ptr + i)) << " ";
 	}
 	return os;
