@@ -1,9 +1,11 @@
 #pragma once
 
-#include "Game.h"
-#include <vector>
-#include <iostream>
 
+#include "Game.h"
+#include "Net.h"
+#include "Layer.h"
+#include "Activation.h"
+#include "Players.h"
 
 
 class Interface {
